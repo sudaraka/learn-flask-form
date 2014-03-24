@@ -1,0 +1,22 @@
+<h1>List of Available Forms</h1>
+
+<ul>
+    {% for user in user_list %}
+    <li>{{ user.name }} (<a href="/form/{{ user.form_key}}">{{ user.form_key }}</a>)</li>
+    {% endfor %}
+</ul>
+
+<table border="1" cellpadding="2">
+    <tr>
+        <th>Date/Time</th>
+        <th>Form ID</th>
+        <th>Form Data (as JSON)</th>
+    </tr>
+    {% for form in form_data %}
+    <tr>
+        <td>{{ form.saved_time }}</td>
+        <td>{{ form.form_key }}</td>
+        <td><pre>{{ form.data }}</pre></td>
+    </tr>
+    {% endfor %}
+</table>
